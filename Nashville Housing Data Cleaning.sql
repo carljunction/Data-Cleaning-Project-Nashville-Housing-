@@ -139,12 +139,12 @@ set SoldAsVacant = case when SoldAsVacant = 'Y' then 'Yes'
 with NashvilleCTE 
 as(
 select * , ROW_NUMBER() over(partition by ParcelID,
-										  PropertySplitAddress,
-										  PropertySplitCity,
-										  saleDate,
-										  salePrice,
-										  LegalReference
-										  order by UniqueId) as row_num
+					PropertySplitAddress,
+					PropertySplitCity,
+					saleDate,
+					salePrice,
+					LegalReference
+					order by UniqueId) as row_num
 from [Project Database]..[Nashville Housing]
 )
 delete 
